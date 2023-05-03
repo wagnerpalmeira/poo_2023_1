@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controllers.LoginController;
+import services.LoginService;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,6 +47,8 @@ public class LoginView extends JFrame {
 			public void run() {
 				try {
 					LoginView frame = new LoginView();
+					LoginService loginService = new LoginService();
+					frame.loginController = new LoginController(frame, loginService);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +61,6 @@ public class LoginView extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginView() {
-		this.loginController = new LoginController(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
