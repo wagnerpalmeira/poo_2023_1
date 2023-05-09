@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controllers.LoginController;
+import services.ILoginService;
 import services.LoginService;
 
 import javax.swing.JLabel;
@@ -47,7 +48,7 @@ public class LoginView extends JFrame {
 			public void run() {
 				try {
 					LoginView frame = new LoginView();
-					LoginService loginService = new LoginService();
+					ILoginService loginService = new LoginService();
 					frame.loginController = new LoginController(frame, loginService);
 					frame.setVisible(true);
 				} catch (Exception e) {

@@ -2,14 +2,14 @@ package controllers;
 
 import javax.swing.JOptionPane;
 
-import services.LoginService;
+import services.ILoginService;
 import views.LoginView;
 
 public class LoginController {
 	private LoginView view;
-	private LoginService loginService;
+	private ILoginService loginService;
 	
-	public LoginController(LoginView view, LoginService loginService) {
+	public LoginController(LoginView view, ILoginService loginService) {
 		this.view = view;
 		this.loginService = loginService;
 	}
