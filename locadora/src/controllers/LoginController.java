@@ -1,8 +1,10 @@
 package controllers;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import services.ILoginService;
+import views.CadastroUsuarioView;
 import views.LoginView;
 
 public class LoginController {
@@ -24,5 +26,12 @@ public class LoginController {
 			JOptionPane.showMessageDialog(view, "Usuário ou senha inválidos");			
 		}
 	}
+	
+	public void cadastrarAction() {
+		CadastroUsuarioView cadastroUsuarioView = new CadastroUsuarioView();
+		cadastroUsuarioView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		cadastroUsuarioView.setVisible(true);
+	}
+
 	
 }

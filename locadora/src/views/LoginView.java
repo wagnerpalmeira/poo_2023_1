@@ -92,5 +92,14 @@ public class LoginView extends JFrame {
 		});
 		btnEntrar.setBounds(177, 163, 117, 25);
 		contentPane.add(btnEntrar);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loginController.cadastrarAction();
+			}
+		});
+		btnCadastrar.setBounds(177, 199, 117, 25);
+		contentPane.add(btnCadastrar);
 	}
 }
