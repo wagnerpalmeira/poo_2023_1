@@ -11,6 +11,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controllers.ProdutoController;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -18,7 +21,8 @@ public class HomeView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNome;
-	private JTextField textFieldTelefone;
+	private JTextField textFieldPreco;
+	private ProdutoController produtoController;
 	private JTable table;
 
 	/**
@@ -54,16 +58,16 @@ public class HomeView extends JFrame {
 		contentPane.add(textFieldNome);
 		textFieldNome.setColumns(10);
 		
-		textFieldTelefone = new JTextField();
-		textFieldTelefone.setBounds(175, 24, 114, 19);
-		contentPane.add(textFieldTelefone);
-		textFieldTelefone.setColumns(10);
+		textFieldPreco = new JTextField();
+		textFieldPreco.setBounds(175, 24, 114, 19);
+		contentPane.add(textFieldPreco);
+		textFieldPreco.setColumns(10);
 		
 		JLabel lblLogin = new JLabel("Nome");
 		lblLogin.setBounds(35, -3, 70, 15);
 		contentPane.add(lblLogin);
 		
-		JLabel lblTelefone = new JLabel("Telefone");
+		JLabel lblTelefone = new JLabel("Preço");
 		lblTelefone.setBounds(175, -3, 70, 15);
 		contentPane.add(lblTelefone);
 		
@@ -97,16 +101,40 @@ public class HomeView extends JFrame {
 		JButton btnInserir = new JButton("Inserir");
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = (DefaultTableModel) table.getModel();
-				model.addRow(
-						new Object [] {
-							textFieldNome.getText(),
-							textFieldTelefone.getText()
-						}
-				);
+				produtoController.inserirProduto();
 			}
 		});
 		btnInserir.setBounds(321, 21, 117, 25);
 		contentPane.add(btnInserir);
+		this.produtoController = new ProdutoController(this);
+		this.produtoController.listarProdutos();
 	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public JTextField getTextFieldNome() {
+		return textFieldNome;
+	}
+
+	public void setTextFieldNome(JTextField textFieldNome) {
+		this.textFieldNome = textFieldNome;
+	}
+
+	public JTextField getTextFieldPreco() {
+		return textFieldPreco;
+	}
+
+	public void setTextFieldPreco(JTextField textFieldPreco) {
+		this.textFieldPreco = textFieldPreco;
+	}
+	
+	
+	
+	
 }
