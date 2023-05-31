@@ -13,12 +13,7 @@ public class ProdutoDAO {
 	private Connection connection;
 	
 	public ProdutoDAO() {
-		try {
-			String DATABASE = "jdbc:sqlite:/home/ownard/Documentos/aula_db";
-			this.connection = DriverManager.getConnection(DATABASE);
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
+		this.connection = ConnectionManager.getConnection();
 	}
 	
 	public ArrayList<Produto> listar() {
